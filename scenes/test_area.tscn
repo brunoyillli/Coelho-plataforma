@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -9,6 +10,12 @@ extents = Vector2( 828.601, 41.8293 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 295.22, 41.8293 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 295.22, 41.8293 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 588.121, 41.8293 )
 
 [node name="test_area" type="Node2D"]
 
@@ -29,10 +36,21 @@ shape = SubResource( 2 )
 
 [node name="shape2" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( 1070.72, -244.233 )
+position = Vector2( 1189.45, -125.5 )
 shape = SubResource( 3 )
 
 [node name="shape3" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( 1760.68, -433.495 )
-shape = SubResource( 3 )
+position = Vector2( 2927.37, -123.756 )
+shape = SubResource( 4 )
+
+[node name="shape4" type="CollisionShape2D" parent="floor"]
+light_mask = 0
+position = Vector2( 4156, 134.36 )
+shape = SubResource( 5 )
+
+[node name="coil" parent="." instance=ExtResource( 2 )]
+position = Vector2( 862.108, 686.589 )
+
+[node name="coil2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2178, 558.241 )
