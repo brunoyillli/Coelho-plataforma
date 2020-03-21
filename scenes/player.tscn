@@ -13,6 +13,7 @@ script = ExtResource( 2 )
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "walk"
+frame = 1
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.116638, -11.9551 )
