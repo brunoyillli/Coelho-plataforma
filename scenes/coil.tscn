@@ -23,6 +23,7 @@ animations = [ {
 extents = Vector2( 70.9578, 10 )
 
 [node name="coil" type="Area2D"]
+position = Vector2( -3.08005, -4.10674 )
 collision_layer = 0
 script = ExtResource( 1 )
 __meta__ = {
@@ -31,9 +32,10 @@ __meta__ = {
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "boing"
+animation = "idle"
 
 [node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -17.4536 )
 shape = SubResource( 2 )
 
 [node name="action" type="AudioStreamPlayer2D" parent="."]
