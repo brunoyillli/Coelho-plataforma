@@ -29,10 +29,10 @@ shape = SubResource( 2 )
 
 [node name="shape2" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( 1001, -112.998 )
+position = Vector2( 1070.72, -244.233 )
 shape = SubResource( 3 )
 
 [node name="shape3" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( 1600.74, -246.895 )
+position = Vector2( 1760.68, -433.495 )
 shape = SubResource( 3 )
