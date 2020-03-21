@@ -18,12 +18,14 @@ func _physics_process(delta):
 	if is_on_floor():
 		if not was_on_floor:
 			$anim_lander.play("boing")
+			$dust/anim.play("dust")
 		$sprite.play("walk")
 		if jump:
 			velocity.y = -1000
+			$jump.play()
 	else:
 		$sprite.play("jump")
-		if jump_release:
+		if jump_release and velocity.y < 0:
 			velocity.y *= .3
 			
 	was_on_floor = is_on_floor()				
