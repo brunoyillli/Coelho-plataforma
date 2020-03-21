@@ -18,3 +18,10 @@ frame = 1
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.116638, -11.9551 )
 shape = SubResource( 2 )
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 731.847, -14.35 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 0

@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 390.297, 41.8293 )
+extents = Vector2( 828.601, 41.8293 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 295.22, 41.8293 )
 
 [node name="test_area" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 346.444, 481.581 )
+position = Vector2( 150.801, 385.054 )
 collision_mask = 2
 
 [node name="floor" type="StaticBody2D" parent="."]
@@ -21,5 +24,15 @@ physics_material_override = SubResource( 1 )
 
 [node name="shape" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( -6.10352e-05, 1.94794 )
+position = Vector2( -50.6485, 12.5295 )
 shape = SubResource( 2 )
+
+[node name="shape2" type="CollisionShape2D" parent="floor"]
+light_mask = 0
+position = Vector2( 1001, -112.998 )
+shape = SubResource( 3 )
+
+[node name="shape3" type="CollisionShape2D" parent="floor"]
+light_mask = 0
+position = Vector2( 1600.74, -246.895 )
+shape = SubResource( 3 )
