@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/platform_big.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -21,7 +22,7 @@ extents = Vector2( 588.121, 41.8293 )
 [node name="test_area" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 150.801, 385.054 )
+position = Vector2( 314.298, 270.475 )
 collision_mask = 2
 
 [node name="floor" type="StaticBody2D" parent="."]
@@ -70,3 +71,6 @@ position = Vector2( 1238.55, 518.85 )
 
 [node name="coin3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1015.38, 504.903 )
+
+[node name="platform_big" parent="." instance=ExtResource( 4 )]
+position = Vector2( 433.853, 597.897 )
