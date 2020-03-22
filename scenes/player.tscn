@@ -80,19 +80,21 @@ tracks/2/keys = {
 script = ExtResource( 2 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 37.8573 )
+scale = Vector2( 1.30629, 0.634229 )
 frames = ExtResource( 1 )
 animation = "walk"
-frame = 1
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.116668, 10.8328 )
 shape = SubResource( 1 )
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2( 839.771, 212.29 )
+position = Vector2( 911.872, 546.231 )
 current = true
-limit_left = 100
+limit_left = 0
 limit_top = 0
+limit_right = 100000
 limit_bottom = 0
 
 [node name="anim_lander" type="AnimationPlayer" parent="."]
