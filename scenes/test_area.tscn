@@ -29,7 +29,7 @@ extents = Vector2( 349.012, 41.8293 )
 [node name="test_area" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 310.873, 280.749 )
+position = Vector2( 146.417, 644.652 )
 collision_mask = 2
 
 [node name="floor" type="StaticBody2D" parent="."]
@@ -90,10 +90,10 @@ position = Vector2( 1238.55, 518.85 )
 position = Vector2( 1015.38, 504.903 )
 
 [node name="platform_big" parent="." instance=ExtResource( 4 )]
-position = Vector2( 433.853, 597.897 )
+position = Vector2( -255.953, 640.695 )
 
 [node name="wingman" parent="." instance=ExtResource( 5 )]
-position = Vector2( 774.003, 688.383 )
+position = Vector2( 754.963, 648.716 )
 
 [node name="wingman2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3171.36, 486.32 )

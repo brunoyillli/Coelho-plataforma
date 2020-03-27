@@ -18,3 +18,4 @@ func _on_head_body_entered(body):
 
 func _on_body_body_entered(body):
 	print("corpo")
+	body.killed()
