@@ -60,7 +60,7 @@ shape = SubResource( 5 )
 
 [node name="shape5" type="CollisionShape2D" parent="floor"]
 light_mask = 0
-position = Vector2( 6108.42, -131.639 )
+position = Vector2( 6157.75, -135.434 )
 shape = SubResource( 6 )
 
 [node name="shape6" type="CollisionShape2D" parent="floor"]
@@ -69,10 +69,10 @@ position = Vector2( 7137.68, -332.546 )
 shape = SubResource( 7 )
 
 [node name="coil" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4251.39, 512.229 )
+position = Vector2( 4414.57, 504.64 )
 
 [node name="coil2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1656.17, 692.25 )
+position = Vector2( 2855.32, 483.536 )
 
 [node name="coin" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1525.87, 588.19 )
@@ -90,10 +90,10 @@ position = Vector2( 1238.55, 518.85 )
 position = Vector2( 1015.38, 504.903 )
 
 [node name="platform_big" parent="." instance=ExtResource( 4 )]
-position = Vector2( -255.953, 640.695 )
+position = Vector2( 2297.94, 667.258 )
 
 [node name="wingman" parent="." instance=ExtResource( 5 )]
-position = Vector2( 754.963, 648.716 )
+position = Vector2( 1552.33, 689.282 )
 
 [node name="wingman2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3171.36, 486.32 )
+position = Vector2( 6920.61, 547.037 )

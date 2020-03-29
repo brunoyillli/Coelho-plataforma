@@ -25,6 +25,11 @@ func _physics_process(delta):
 		running(delta)
 	elif status == DEAD:
 		dead(delta)
+		
+	if status != DEAD:
+		if position.y > ProjectSettings.get_setting("display/window/size/height"):
+			killed()
+		
 	jump = false
 	jump_release = false
 

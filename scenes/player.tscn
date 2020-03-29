@@ -78,7 +78,11 @@ tracks/2/keys = {
 }
 
 [node name="player" type="KinematicBody2D"]
+position = Vector2( 37.7631, 95.6664 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 37.8573 )
@@ -91,9 +95,9 @@ position = Vector2( -0.116668, 10.8328 )
 shape = SubResource( 1 )
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2( 911.872, 546.231 )
+position = Vector2( 670.189, 543.714 )
 current = true
-limit_left = 0
+limit_left = -1000000
 limit_top = 0
 limit_right = 100000
 limit_bottom = 0
