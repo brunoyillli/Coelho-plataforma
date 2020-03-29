@@ -1,103 +1,183 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/platform_big.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/Items/powerup_wings.png" type="Texture" id=6]
-[ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=7]
+[ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/parallax_01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scripts/parallax.gd" type="Script" id=9]
+[ext_resource path="res://sprites/UI/grey_panel.png" type="Texture" id=9]
+[ext_resource path="res://sprites/UI/blue_button00.png" type="Texture" id=10]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends StaticBody2D
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 828.601, 41.8293 )
+var textures = [
+	\"res://sprites/Environment/ground_cake.png\",
+	\"res://sprites/Environment/ground_grass.png\",
+	\"res://sprites/Environment/ground_sand.png\",
+	\"res://sprites/Environment/ground_snow.png\",
+	\"res://sprites/Environment/ground_stone.png\",
+	\"res://sprites/Environment/ground_wood.png\"
+]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 295.22, 41.8293 )
+export(int , \"CAKE\" , \"GRASS\" , \"SAND\" , \"SNOW\" , \"STONE\" , \"WOOD\") var texture = 0 setget set_texture
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 295.22, 41.8293 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 602.464, 41.8293 )
+func _ready():
+	pass
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 580.829, 41.8293 )
+func _draw():
+	$sprite.texture = load(textures[texture])
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 349.012, 41.8293 )
+func set_texture(val):
+	texture = val
+	if is_inside_tree() && Engine.editor_hint:
+		update()
+"
 
-[sub_resource type="CircleShape2D" id=8]
-radius = 43.7686
+[sub_resource type="GDScript" id=2]
+script/source = "tool
+extends StaticBody2D
+
+var textures = [
+	\"res://sprites/Environment/ground_cake.png\",
+	\"res://sprites/Environment/ground_grass.png\",
+	\"res://sprites/Environment/ground_sand.png\",
+	\"res://sprites/Environment/ground_snow.png\",
+	\"res://sprites/Environment/ground_stone.png\",
+	\"res://sprites/Environment/ground_wood.png\"
+]
+
+export(int , \"CAKE\" , \"GRASS\" , \"SAND\" , \"SNOW\" , \"STONE\" , \"WOOD\") var texture = 0 setget set_texture
+
+
+func _ready():
+	pass
+
+func _draw():
+	$sprite.texture = load(textures[texture])
+
+func set_texture(val):
+	texture = val
+	if is_inside_tree() && Engine.editor_hint:
+		update()
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "tool
+extends StaticBody2D
+
+var textures = [
+	\"res://sprites/Environment/ground_cake.png\",
+	\"res://sprites/Environment/ground_grass.png\",
+	\"res://sprites/Environment/ground_sand.png\",
+	\"res://sprites/Environment/ground_snow.png\",
+	\"res://sprites/Environment/ground_stone.png\",
+	\"res://sprites/Environment/ground_wood.png\"
+]
+
+export(int , \"CAKE\" , \"GRASS\" , \"SAND\" , \"SNOW\" , \"STONE\" , \"WOOD\") var texture = 0 setget set_texture
+
+
+func _ready():
+	pass
+
+func _draw():
+	$sprite.texture = load(textures[texture])
+
+func set_texture(val):
+	texture = val
+	if is_inside_tree() && Engine.editor_hint:
+		update()
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "tool
+extends StaticBody2D
+
+var textures = [
+	\"res://sprites/Environment/ground_cake.png\",
+	\"res://sprites/Environment/ground_grass.png\",
+	\"res://sprites/Environment/ground_sand.png\",
+	\"res://sprites/Environment/ground_snow.png\",
+	\"res://sprites/Environment/ground_stone.png\",
+	\"res://sprites/Environment/ground_wood.png\"
+]
+
+export(int , \"CAKE\" , \"GRASS\" , \"SAND\" , \"SNOW\" , \"STONE\" , \"WOOD\") var texture = 0 setget set_texture
+
+
+func _ready():
+	pass
+
+func _draw():
+	$sprite.texture = load(textures[texture])
+
+func set_texture(val):
+	texture = val
+	if is_inside_tree() && Engine.editor_hint:
+		update()
+"
 
 [node name="test_area" type="Node2D"]
+
+[node name="plataforms" type="Node2D" parent="."]
+
+[node name="platform_big" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 127.555, 805.061 )
+script = SubResource( 1 )
+texture = 1
+
+[node name="platform_big2" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 429.66, 799.761 )
+script = SubResource( 2 )
+texture = 1
+
+[node name="platform_big3" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 2250.24, 585.107 )
+script = SubResource( 3 )
+texture = 0
+
+[node name="platform_big4" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 3530.48, 596.852 )
+script = SubResource( 3 )
+texture = 1
+
+[node name="platform_big5" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 4405.51, 611.534 )
+script = SubResource( 3 )
+texture = 1
+
+[node name="platform_big6" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 5691.63, 582.171 )
+script = SubResource( 4 )
+texture = 1
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 146.417, 644.652 )
 collision_mask = 2
 
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2( 927.089, 794.374 )
-collision_layer = 2
-collision_mask = 0
-physics_material_override = SubResource( 1 )
-
-[node name="shape" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( -50.6485, 12.5295 )
-shape = SubResource( 2 )
-
-[node name="shape2" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( 2172.08, -201.265 )
-shape = SubResource( 3 )
-
-[node name="shape3" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( 3321.99, -181.156 )
-shape = SubResource( 4 )
-
-[node name="shape4" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( 4751.52, 103.268 )
-shape = SubResource( 5 )
-
-[node name="shape5" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( 6157.75, -135.434 )
-shape = SubResource( 6 )
-
-[node name="shape6" type="CollisionShape2D" parent="floor"]
-light_mask = 0
-position = Vector2( 7137.68, -332.546 )
-shape = SubResource( 7 )
-
-[node name="coil" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4414.57, 504.64 )
-
 [node name="coil2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2855.32, 483.536 )
+position = Vector2( 2240.51, 496.787 )
 
 [node name="coin" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1525.87, 588.19 )
 
 [node name="coin5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 6247, 714.948 )
+position = Vector2( 6308.66, 339.097 )
 
 [node name="coin4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 755.959, 546.745 )
+position = Vector2( 814.686, 470.4 )
 
 [node name="coin2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1238.55, 518.85 )
+position = Vector2( 1309.02, 383.778 )
 
 [node name="coin3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1015.38, 504.903 )
-
-[node name="platform_big" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2297.94, 667.258 )
+position = Vector2( 1038.87, 381.577 )
 
 [node name="wingman" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1552.33, 689.282 )
@@ -105,25 +185,44 @@ position = Vector2( 1552.33, 689.282 )
 [node name="wingman2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 6920.61, 547.037 )
 
-[node name="fly_powerup" type="Area2D" parent="."]
-position = Vector2( 641.068, 638.909 )
-collision_layer = 0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="sprite" type="Sprite" parent="fly_powerup"]
-scale = Vector2( 1.44757, 1.38019 )
-texture = ExtResource( 6 )
-
-[node name="shape" type="CollisionShape2D" parent="fly_powerup"]
-shape = SubResource( 8 )
+[node name="fly_powerup" parent="." instance=ExtResource( 7 )]
 
 [node name="parallax" parent="." instance=ExtResource( 8 )]
-script = ExtResource( 9 )
 modulate_l1 = Color( 0.647059, 0.886275, 0.901961, 1 )
 modulate_l2 = Color( 0.878431, 0.92549, 0.921569, 1 )
 modulate_l3 = Color( 0.12549, 0.647059, 0.109804, 1 )
 modulate_l4 = Color( 0.0156863, 0.286275, 0.0588235, 1 )
-[connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
+
+[node name="carrot" parent="." instance=ExtResource( 6 )]
+position = Vector2( 7273.37, 228.404 )
+
+[node name="power_up_bar" type="Node2D" parent="."]
+
+[node name="base" type="NinePatchRect" parent="power_up_bar"]
+margin_left = 364.0
+margin_top = 78.0
+margin_right = 1171.0
+margin_bottom = 134.0
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 100, 100 )
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 7
+patch_margin_bottom = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar" type="NinePatchRect" parent="power_up_bar"]
+margin_left = 369.0
+margin_top = 84.0
+margin_right = 1166.0
+margin_bottom = 128.0
+texture = ExtResource( 10 )
+patch_margin_left = 7
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}

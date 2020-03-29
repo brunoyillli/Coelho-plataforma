@@ -11,7 +11,7 @@ onready var mask = collision_mask
 onready var layer = collision_layer
 
 
-enum {IDLE , RUNNING , FLYING , DEAD}
+enum {IDLE , RUNNING , FLYING , DEAD , VICTORY}
 
 var status = RUNNING
 
@@ -71,7 +71,7 @@ func flying(delta):
 
 
 func _input(event):
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch or event.is_action("jump"):
 		if  event.is_pressed():
 			jump = true
 		else:
@@ -94,3 +94,7 @@ func fly():
 	jump(400, false)
 	status = FLYING
 	$wings.visible = true
+	
+func victory():
+	$sprite.play("victory")
+	status = VICTORY
