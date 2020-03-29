@@ -8,17 +8,17 @@
 
 [node name="parallax" type="ParallaxBackground"]
 script = ExtResource( 5 )
-modulate_l1 = Color( 0.384314, 0.298039, 0.694118, 1 )
-modulate_l2 = Color( 0.113725, 0.584314, 0.517647, 1 )
-modulate_l3 = Color( 0.184314, 0.666667, 0.635294, 1 )
-modulate_l4 = Color( 0.196078, 0.2, 0.670588, 1 )
+modulate_l1 = Color( 0.560784, 0.929412, 0.764706, 1 )
+modulate_l2 = Color( 0.027451, 0.0313726, 0.356863, 1 )
+modulate_l3 = Color( 0.458824, 0.854902, 0.372549, 1 )
+modulate_l4 = Color( 0.145098, 0.54902, 0.133333, 1 )
 
 [node name="layer1" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0, 1 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="bg_layer1" type="Sprite" parent="layer1"]
-modulate = Color( 0.384314, 0.298039, 0.694118, 1 )
+modulate = Color( 0.560784, 0.929412, 0.764706, 1 )
 position = Vector2( 775.915, 565.752 )
 texture = ExtResource( 3 )
 
@@ -27,7 +27,7 @@ motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="bg_layer2" type="Sprite" parent="layer2"]
-modulate = Color( 0.113725, 0.584314, 0.517647, 1 )
+modulate = Color( 0.027451, 0.0313726, 0.356863, 1 )
 position = Vector2( 784.572, 570.353 )
 texture = ExtResource( 2 )
 
@@ -36,7 +36,7 @@ motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="bg_layer3" type="Sprite" parent="layer3"]
-modulate = Color( 0.184314, 0.666667, 0.635294, 1 )
+modulate = Color( 0.458824, 0.854902, 0.372549, 1 )
 position = Vector2( 788.21, 565.043 )
 texture = ExtResource( 4 )
 
@@ -45,6 +45,6 @@ motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="bg_layer4" type="Sprite" parent="layer4"]
-modulate = Color( 0.196078, 0.2, 0.670588, 1 )
+modulate = Color( 0.145098, 0.54902, 0.133333, 1 )
 position = Vector2( 784.438, 542.138 )
 texture = ExtResource( 1 )
