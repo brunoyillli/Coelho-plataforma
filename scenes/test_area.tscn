@@ -8,8 +8,7 @@
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/parallax_01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sprites/UI/grey_panel.png" type="Texture" id=9]
-[ext_resource path="res://sprites/UI/blue_button00.png" type="Texture" id=10]
+[ext_resource path="res://scenes/power_up_bar.tscn" type="PackedScene" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "tool
@@ -123,6 +122,34 @@ func set_texture(val):
 		update()
 "
 
+[sub_resource type="GDScript" id=5]
+script/source = "tool
+extends StaticBody2D
+
+var textures = [
+	\"res://sprites/Environment/ground_cake.png\",
+	\"res://sprites/Environment/ground_grass.png\",
+	\"res://sprites/Environment/ground_sand.png\",
+	\"res://sprites/Environment/ground_snow.png\",
+	\"res://sprites/Environment/ground_stone.png\",
+	\"res://sprites/Environment/ground_wood.png\"
+]
+
+export(int , \"CAKE\" , \"GRASS\" , \"SAND\" , \"SNOW\" , \"STONE\" , \"WOOD\") var texture = 0 setget set_texture
+
+
+func _ready():
+	pass
+
+func _draw():
+	$sprite.texture = load(textures[texture])
+
+func set_texture(val):
+	texture = val
+	if is_inside_tree() && Engine.editor_hint:
+		update()
+"
+
 [node name="test_area" type="Node2D"]
 
 [node name="plataforms" type="Node2D" parent="."]
@@ -157,6 +184,11 @@ position = Vector2( 5691.63, 582.171 )
 script = SubResource( 4 )
 texture = 1
 
+[node name="platform_big7" parent="plataforms" instance=ExtResource( 4 )]
+position = Vector2( 721.695, 802.278 )
+script = SubResource( 5 )
+texture = 1
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 146.417, 644.652 )
 collision_mask = 2
@@ -168,7 +200,7 @@ position = Vector2( 2240.51, 496.787 )
 position = Vector2( 1525.87, 588.19 )
 
 [node name="coin5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 6308.66, 339.097 )
+position = Vector2( 6234.48, 348.37 )
 
 [node name="coin4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 814.686, 470.4 )
@@ -183,9 +215,10 @@ position = Vector2( 1038.87, 381.577 )
 position = Vector2( 1552.33, 689.282 )
 
 [node name="wingman2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 6920.61, 547.037 )
+position = Vector2( 6617.7, 562.491 )
 
 [node name="fly_powerup" parent="." instance=ExtResource( 7 )]
+time = 4.0
 
 [node name="parallax" parent="." instance=ExtResource( 8 )]
 modulate_l1 = Color( 0.647059, 0.886275, 0.901961, 1 )
@@ -194,35 +227,8 @@ modulate_l3 = Color( 0.12549, 0.647059, 0.109804, 1 )
 modulate_l4 = Color( 0.0156863, 0.286275, 0.0588235, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 7273.37, 228.404 )
+position = Vector2( 7879.18, 206.768 )
 
-[node name="power_up_bar" type="Node2D" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="base" type="NinePatchRect" parent="power_up_bar"]
-margin_left = 364.0
-margin_top = 78.0
-margin_right = 1171.0
-margin_bottom = 134.0
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 100, 100 )
-patch_margin_left = 5
-patch_margin_top = 6
-patch_margin_right = 7
-patch_margin_bottom = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bar" type="NinePatchRect" parent="power_up_bar"]
-margin_left = 369.0
-margin_top = 84.0
-margin_right = 1166.0
-margin_bottom = 128.0
-texture = ExtResource( 10 )
-patch_margin_left = 7
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="power_up_bar" parent="HUD" instance=ExtResource( 9 )]

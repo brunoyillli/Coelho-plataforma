@@ -17,6 +17,7 @@ var status = RUNNING
 
 func _ready():
 	set_process_input(true)
+	add_to_group("player")
 	
 
 func _physics_process(delta):
@@ -68,7 +69,9 @@ func flying(delta):
 		$wings/anim.play("flap")
 		jump(400,false)
 		$flap.play()
-
+	if is_on_floor():
+		get_tree().call_group("power_up_bar", "stop")
+		powerup_finished()
 
 func _input(event):
 	if event is InputEventScreenTouch or event.is_action("jump"):
@@ -98,3 +101,8 @@ func fly():
 func victory():
 	$sprite.play("victory")
 	status = VICTORY
+
+func powerup_finished():
+	if status != DEAD:
+		status = RUNNING
+		$wings.hide()
