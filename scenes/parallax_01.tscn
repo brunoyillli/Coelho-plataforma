@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/Background/bg_layer4.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Background/bg_layer2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Background/bg_layer1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Background/bg_layer3.png" type="Texture" id=4]
+[ext_resource path="res://scripts/parallax.gd" type="Script" id=5]
+
+[node name="parallax" type="ParallaxBackground"]
+script = ExtResource( 5 )
+modulate_l1 = Color( 0.384314, 0.298039, 0.694118, 1 )
+modulate_l2 = Color( 0.113725, 0.584314, 0.517647, 1 )
+modulate_l3 = Color( 0.184314, 0.666667, 0.635294, 1 )
+modulate_l4 = Color( 0.196078, 0.2, 0.670588, 1 )
+
+[node name="layer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="bg_layer1" type="Sprite" parent="layer1"]
+modulate = Color( 0.384314, 0.298039, 0.694118, 1 )
+position = Vector2( 775.915, 565.752 )
+texture = ExtResource( 3 )
+
+[node name="layer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="bg_layer2" type="Sprite" parent="layer2"]
+modulate = Color( 0.113725, 0.584314, 0.517647, 1 )
+position = Vector2( 784.572, 570.353 )
+texture = ExtResource( 2 )
+
+[node name="layer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="bg_layer3" type="Sprite" parent="layer3"]
+modulate = Color( 0.184314, 0.666667, 0.635294, 1 )
+position = Vector2( 788.21, 565.043 )
+texture = ExtResource( 4 )
+
+[node name="layer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="bg_layer4" type="Sprite" parent="layer4"]
+modulate = Color( 0.196078, 0.2, 0.670588, 1 )
+position = Vector2( 784.438, 542.138 )
+texture = ExtResource( 1 )

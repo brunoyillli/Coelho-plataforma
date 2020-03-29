@@ -23,6 +23,8 @@ func _physics_process(delta):
 	
 	if status == RUNNING:
 		running(delta)
+	elif status == FLYING:
+		flying(delta)
 	elif status == DEAD:
 		dead(delta)
 		
@@ -58,6 +60,16 @@ func dead(delta):
 	translate(velocity * delta)
 	velocity.y += grav * delta
 	
+func flying(delta):
+	velocity.y += grav * delta
+	velocity.x = velX
+	velocity = move_and_slide(velocity,Vector2(0,-1))
+	if jump:
+		$wings/anim.play("flap")
+		jump(400,false)
+		$flap.play()
+
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		if  event.is_pressed():
@@ -76,3 +88,9 @@ func killed():
 		collision_layer = 0
 		velocity = Vector2(0 , -1000)
 		$dead.play()
+		
+func fly():
+	$sprite.play("jump")
+	jump(400, false)
+	status = FLYING
+	$wings.visible = true

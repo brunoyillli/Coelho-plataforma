@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/platform_big.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/wingman.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/Items/powerup_wings.png" type="Texture" id=6]
+[ext_resource path="res://scripts/fly_powerup.gd" type="Script" id=7]
+[ext_resource path="res://scenes/parallax_01.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -25,6 +28,9 @@ extents = Vector2( 580.829, 41.8293 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 349.012, 41.8293 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 43.7686
 
 [node name="test_area" type="Node2D"]
 
@@ -97,3 +103,25 @@ position = Vector2( 1552.33, 689.282 )
 
 [node name="wingman2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 6920.61, 547.037 )
+
+[node name="fly_powerup" type="Area2D" parent="."]
+position = Vector2( 641.068, 638.909 )
+collision_layer = 0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="fly_powerup"]
+scale = Vector2( 1.44757, 1.38019 )
+texture = ExtResource( 6 )
+
+[node name="shape" type="CollisionShape2D" parent="fly_powerup"]
+shape = SubResource( 8 )
+
+[node name="parallax" parent="." instance=ExtResource( 8 )]
+modulate_l1 = Color( 0.698039, 0.721569, 0.780392, 1 )
+modulate_l2 = Color( 0.709804, 0.87451, 0.756863, 1 )
+modulate_l3 = Color( 0.596078, 0.431373, 0.431373, 1 )
+modulate_l4 = Color( 0.027451, 0.0431373, 0.2, 1 )
+[connection signal="body_entered" from="fly_powerup" to="fly_powerup" method="_on_fly_powerup_body_entered"]
