@@ -127,6 +127,8 @@ offset = Vector2( -28.7948, -28.0944 )
 anims/flap = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 37.8573 )
+scale = Vector2( 1.30629, 0.634229 )
 frames = ExtResource( 1 )
 animation = "victory"
 

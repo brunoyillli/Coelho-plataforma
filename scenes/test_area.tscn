@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://sprites/HUD/coin_gold.png" type="Texture" id=10]
 [ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=11]
 [ext_resource path="res://scripts/coin_counter.gd" type="Script" id=12]
+[ext_resource path="res://scripts/spikes.gd" type="Script" id=13]
+[ext_resource path="res://sprites/Environment/spikes_top.png" type="Texture" id=14]
 
 [sub_resource type="GDScript" id=1]
 script/source = "tool
@@ -154,8 +156,11 @@ func set_texture(val):
 "
 
 [sub_resource type="DynamicFont" id=6]
-size = 60
+size = 70
 font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 34.8891, 24.1653 )
 
 [node name="test_area" type="Node2D"]
 
@@ -167,7 +172,7 @@ script = SubResource( 1 )
 texture = 1
 
 [node name="platform_big2" parent="plataforms" instance=ExtResource( 4 )]
-position = Vector2( 429.66, 799.761 )
+position = Vector2( 430.952, 804.93 )
 script = SubResource( 2 )
 texture = 1
 
@@ -192,7 +197,7 @@ script = SubResource( 4 )
 texture = 1
 
 [node name="platform_big7" parent="plataforms" instance=ExtResource( 4 )]
-position = Vector2( 721.695, 802.278 )
+position = Vector2( 730.742, 806.744 )
 script = SubResource( 5 )
 texture = 1
 
@@ -234,7 +239,7 @@ modulate_l3 = Color( 0.12549, 0.647059, 0.109804, 1 )
 modulate_l4 = Color( 0.0156863, 0.286275, 0.0588235, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 7879.18, 206.768 )
+position = Vector2( 7127.48, 215.577 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -259,3 +264,19 @@ text = "99999999"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="spikes" type="Area2D" parent="."]
+position = Vector2( 805.141, 732.769 )
+collision_layer = 0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="spikes"]
+texture = ExtResource( 14 )
+
+[node name="shape" type="CollisionShape2D" parent="spikes"]
+position = Vector2( -0.875977, 1.75194 )
+shape = SubResource( 7 )
+[connection signal="body_entered" from="spikes" to="spikes" method="_on_spikes_body_entered"]
