@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/coil.tscn" type="PackedScene" id=2]
@@ -8,10 +8,6 @@
 [ext_resource path="res://scenes/carrot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/fly_powerup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/parallax_01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/power_up_bar.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/HUD/coin_gold.png" type="Texture" id=10]
-[ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=11]
-[ext_resource path="res://scripts/coin_counter.gd" type="Script" id=12]
 [ext_resource path="res://scenes/spikes.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
@@ -154,10 +150,6 @@ func set_texture(val):
 		update()
 "
 
-[sub_resource type="DynamicFont" id=6]
-size = 70
-font_data = ExtResource( 11 )
-
 [node name="test_area" type="Node2D"]
 
 [node name="plataforms" type="Node2D" parent="."]
@@ -236,29 +228,5 @@ modulate_l4 = Color( 0.0156863, 0.286275, 0.0588235, 1 )
 
 [node name="carrot" parent="." instance=ExtResource( 6 )]
 position = Vector2( 7153.51, 147.252 )
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="power_up_bar" parent="HUD" instance=ExtResource( 9 )]
-visible = false
-
-[node name="coin_counter" type="Node2D" parent="HUD"]
-script = ExtResource( 12 )
-
-[node name="coin_gold" type="Sprite" parent="HUD/coin_counter"]
-position = Vector2( 54.9725, 52.2965 )
-texture = ExtResource( 10 )
-
-[node name="coins" type="Label" parent="HUD/coin_counter"]
-margin_left = 107.83
-margin_top = 14.9243
-margin_right = 355.83
-margin_bottom = 80.9243
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.945098, 0.823529, 0.168627, 1 )
-text = "99999999"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="spikes" parent="." instance=ExtResource( 13 )]
