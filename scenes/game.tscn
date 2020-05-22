@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Chocolate Bar Demo.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/stage_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/game.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+export(String , FILE) var stage 
+
+func _ready():
+	pass
+
+
+func _on_stage_button_pressed():
+	get_tree().call_group(\"game\" , \"stage_selected\", self)
+"
+
+[node name="game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="stage_buttons" type="GridContainer" parent="."]
+margin_left = 425.0
+margin_top = 213.0
+margin_right = 1404.0
+margin_bottom = 918.0
+columns = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stage_button" parent="stage_buttons" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 180.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+script = SubResource( 2 )
+stage = ""
