@@ -127,10 +127,10 @@ offset = Vector2( -28.7948, -28.0944 )
 anims/flap = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 37.8573 )
-scale = Vector2( 1.30629, 0.634229 )
+position = Vector2( 0, 25.5832 )
+scale = Vector2( 1.30629, 0.75636 )
 frames = ExtResource( 1 )
-animation = "victory"
+animation = "idle"
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.116668, 10.8328 )

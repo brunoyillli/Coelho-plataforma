@@ -13,11 +13,13 @@ onready var layer = collision_layer
 
 enum {IDLE , RUNNING , FLYING , DEAD , VICTORY}
 
-var status = RUNNING
+var status = IDLE
 
 func _ready():
-	set_process_input(true)
 	add_to_group("player")
+	$sprite.play("IDLE")
+	set_process_input(true)
+
 	
 
 func _physics_process(delta):
@@ -109,3 +111,5 @@ func powerup_finished():
 	if status != DEAD:
 		status = RUNNING
 		$wings.hide()
+func start():
+	status = RUNNING

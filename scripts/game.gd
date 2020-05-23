@@ -26,7 +26,10 @@ func load_stage():
 	loaded_stage = load(current_stage).instance()
 	ref_stage = weakref(loaded_stage)
 	add_child(loaded_stage)
-
+	
+	$HUD/countdown/anim.play("count")
+	yield($HUD/countdown/anim , "animation_finished")
+	get_tree().call_group("player" , "start")
 func player_died():
 	load_stage()
 
