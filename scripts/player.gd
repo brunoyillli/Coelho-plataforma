@@ -93,7 +93,7 @@ func killed():
 		collision_layer = 0
 		velocity = Vector2(0 , -1000)
 		$dead.play()
-		
+		get_tree().call_group("power_up_bar", "stop")
 func fly():
 	$sprite.play("jump")
 	jump(400, false)

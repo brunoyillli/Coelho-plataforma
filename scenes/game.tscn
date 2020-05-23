@@ -23,8 +23,8 @@ __meta__ = {
 [node name="stage_button" parent="interfase/stage_buttons" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 132.0
-margin_bottom = 39.0
+margin_right = 180.0
+margin_bottom = 60.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
